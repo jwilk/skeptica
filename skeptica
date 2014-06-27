@@ -78,7 +78,8 @@ for my $u (@ARGV) {
     ) or do {
         $rc = 1;
         my $error = $IO::Socket::SSL::SSL_ERROR;
-        $error =~s /\AIO::Socket::IP configuration failed SSL connect attempt failed with unknown error error/error/;
+        my $cruft = 'IO::Socket::IP configuration failed SSL connect attempt failed with unknown error';
+        $error =~s /\A\Q$cruft error/error/;
         print {*STDERR} "skeptica: $host:$port: $error\n";
         next;
     };
