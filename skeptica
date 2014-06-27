@@ -53,7 +53,8 @@ for my $u (@ARGV) {
     my $uri = URI->new($u);
     my $scheme = $uri->scheme;
     if (not exists $tls_schemes{$scheme}) {
-        warn "$uri: uknown scheme $scheme";
+        print {*STDERR} "skeptica: $uri: uknown URI scheme: $scheme\n";
+        $rc = 1;
         next;
     }
     my $cert_path = undef;
