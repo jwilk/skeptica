@@ -61,10 +61,8 @@ for my $u (@ARGV) {
     my $cert_path = undef;
     my $callback = sub {
         my ($ok, undef, undef, undef, $cert_ptr) = @_;
-        if (not defined($cert_path)) {
-            $cert_path = $ca_certs{$cert_ptr};
-            $cert_path //= '';
-        }
+        $cert_path //= $ca_certs{$cert_ptr};
+        $cert_path //= '';
         return $ok;
     };
     my ($host, $port) = ($uri->host, $uri->port);
@@ -83,7 +81,7 @@ for my $u (@ARGV) {
         print {*STDERR} "skeptica: $host:$port: $error\n";
         next;
     };
-    if (not defined($cert_path) or $cert_path eq '') {
+    if ($cert_path) {
         print {*STDERR} "skeptica: $host:$port: unable to determine CA\n";
         $rc = 1;
     }
