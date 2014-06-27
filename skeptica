@@ -74,16 +74,17 @@ for my $u (@ARGV) {
         SSL_verifycn_scheme => 'default',
         SSL_verify_callback => $callback,
     ) or do {
-        $rc = 1;
         my $error = $IO::Socket::SSL::SSL_ERROR;
         my $cruft = 'IO::Socket::IP configuration failed SSL connect attempt failed with unknown error';
         $error =~s /\A\Q$cruft error/error/;
         print {*STDERR} "skeptica: $host:$port: $error\n";
+        $rc = 1;
         next;
     };
-    if ($cert_path) {
+    if (not $cert_path) {
         print {*STDERR} "skeptica: $host:$port: unable to determine CA\n";
         $rc = 1;
+        next;
     }
     print "$uri\t$cert_path\n";
 }
