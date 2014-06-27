@@ -32,9 +32,8 @@ use IO::Socket::SSL ();
 use IO::Socket::SSL::Utils ();
 use URI ();
 
-my @tls_schemes = qw(https ldaps);
-
-my %tls_schemes = map { $_ => 1 } @tls_schemes;
+my @scheme_blacklist = qw(ssh);
+my %scheme_blacklist = map { $_ => 1 } @scheme_blacklist;
 
 my %ca_certs;
 my $ca_dir = '/usr/share/ca-certificates';
@@ -57,7 +56,12 @@ for my $u (@ARGV) {
         print {*STDERR} "skeptica: $uri: uknown URI scheme\n";
         $rc = 1;
         next;
-    } elsif (not exists $tls_schemes{$scheme}) {
+    }
+    my $tls = (
+        $uri->secure and
+        not exists($scheme_blacklist{$scheme})
+    );
+    if (not $tls) {
         print {*STDERR} "skeptica: $uri: uknown URI scheme: $scheme\n";
         $rc = 1;
         next;
