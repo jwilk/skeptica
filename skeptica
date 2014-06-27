@@ -25,6 +25,7 @@ use v5.10;
 use strict;
 use warnings;
 
+use English qw(-no_match_vars);
 use File::Find ();
 
 use IO::Socket::SSL ();
@@ -88,5 +89,12 @@ for my $u (@ARGV) {
     print "$uri\t$cert_path\n";
 }
 exit($rc);
+
+END {
+    # catch write errors:
+    local $ERRNO = 0;
+    close(STDOUT) or die $ERRNO;
+    close(STDERR) or die $ERRNO;
+}
 
 # vim:ts=4 sw=4 et
