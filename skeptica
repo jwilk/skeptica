@@ -53,7 +53,7 @@ for my $u (@ARGV) {
     my $uri = URI->new($u);
     my $scheme = $uri->scheme;
     if (not defined($scheme) or $scheme =~ m/[.]/) {
-        print {*STDERR} "skeptica: $uri: uknown URI scheme\n";
+        print {*STDERR} "skeptica: $uri: unknown URI scheme\n";
         $rc = 1;
         next;
     }
@@ -62,7 +62,7 @@ for my $u (@ARGV) {
         not exists($scheme_blacklist{$scheme})
     );
     if (not $tls) {
-        print {*STDERR} "skeptica: $uri: uknown URI scheme: $scheme\n";
+        print {*STDERR} "skeptica: $uri: unknown URI scheme: $scheme\n";
         $rc = 1;
         next;
     }
