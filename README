@@ -1,4 +1,6 @@
-Find out which root CAs the TLS servers use::
+Find out which root CAs the TLS servers use:
+
+.. code:: console
 
    $ cat urls
    https://github.com/jwilk/skeptica
