@@ -1,0 +1,18 @@
+language: perl
+perl:
+- "5.10"
+- "5.24"
+dist: trusty
+sudo: false
+addons:
+  apt:
+    packages:
+    - python-docutils
+    - python-pygments
+install:
+- cpanm IO::Socket::SSL
+script:
+- grep -E '\w+://\S+' README -o | sort -u | xargs ./skeptica
+- private/check-rst
+
+# vim:ts=2 sts=2 sw=2 et
