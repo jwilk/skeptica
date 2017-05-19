@@ -1,3 +1,6 @@
+Overview
+========
+
 Find out which root CAs the TLS servers use:
 
 .. code:: console
@@ -13,5 +16,16 @@ Find out which root CAs the TLS servers use:
    https://www.debian.org/	/usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt
    ldaps://db.debian.org/	/usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt
    https://lwn.net/	/usr/share/ca-certificates/mozilla/GeoTrust_Global_CA.crt
+
+Prerequisites
+=============
+
+* Perl ≥ 5.10
+
+* `IO::Socket::SSL <https://metacpan.org/release/IO-Socket-SSL>`_
+
+* `URI <https://metacpan.org/release/URI>`_
+
+* CA certificate bundle unpacked at ``/usr/share/ca-certificates``.
 
 .. vim:ft=rst ts=3 sts=3 sw=3 et
