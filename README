@@ -26,6 +26,6 @@ Prerequisites
 
 * `URI <https://metacpan.org/release/URI>`_
 
-* CA certificate bundle unpacked at ``/usr/share/ca-certificates``.
+* CA certificate bundle unpacked at ``/usr/share/ca-certificates``
 
 .. vim:ft=rst ts=3 sts=3 sw=3 et
