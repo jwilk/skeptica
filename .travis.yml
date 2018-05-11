@@ -6,9 +6,9 @@ dist: trusty
 sudo: false
 install:
 - cpanm IO::Socket::SSL
-- python -m pip install --user docutils pygments
+- python -m pip install --user pygments restructuredtext-lint
 script:
 - grep -E '\w+://\S+' README -o | sort -u | xargs ./skeptica
-- private/check-rst
+- restructuredtext-lint --encoding=UTF-8 README
 
 # vim:ts=2 sts=2 sw=2 et
