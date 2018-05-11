@@ -4,13 +4,9 @@ perl:
 - "5.26"
 dist: trusty
 sudo: false
-addons:
-  apt:
-    packages:
-    - python-docutils
-    - python-pygments
 install:
 - cpanm IO::Socket::SSL
+- python -m pip install --user docutils pygments
 script:
 - grep -E '\w+://\S+' README -o | sort -u | xargs ./skeptica
 - private/check-rst
