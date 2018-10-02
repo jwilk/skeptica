@@ -13,7 +13,7 @@ use File::Find ();
 
 use IO::Socket::SSL ();
 use IO::Socket::SSL::Utils ();
-use URI ();
+use URI 1.53 ();
 
 my @scheme_blacklist = qw(ssh);
 my %scheme_blacklist = map { $_ => 1 } @scheme_blacklist;
