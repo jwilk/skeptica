@@ -3,7 +3,6 @@ perl:
 - "5.10"
 - "5.28"
 dist: trusty
-sudo: false
 install:
 - cpanm IO::Socket::SSL
 - python -m pip install --user pygments restructuredtext-lint
