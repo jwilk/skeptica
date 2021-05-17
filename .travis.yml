@@ -5,11 +5,13 @@ jobs:
   - perl: "5.10"
     dist: trusty
   - perl: "5.30"
+before_install:
+- if [[ $TRAVIS_DIST = trusty ]]; then if_rstlint=:; fi
 install:
 - cpanm IO::Socket::SSL
-- python -m pip install --user pygments restructuredtext-lint
+- $if_rstlint python -m pip install --user pygments restructuredtext-lint
 script:
 - grep -E '\w+://\S+' README -o | sort -u | xargs ./skeptica
-- restructuredtext-lint --encoding=UTF-8 README
+- $if_rstlint restructuredtext-lint --encoding=UTF-8 README
 
 # vim:ts=2 sts=2 sw=2 et
