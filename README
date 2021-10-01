@@ -7,15 +7,15 @@ Find out which root CAs the TLS servers use:
 
    $ cat urls
    https://github.com/jwilk/skeptica
+   https://metacpan.org/
    https://www.debian.org/
    ldaps://db.debian.org/
-   https://lwn.net/
 
    $ xargs skeptica < urls
    https://github.com/jwilk/skeptica	/usr/share/ca-certificates/mozilla/DigiCert_High_Assurance_EV_Root_CA.crt
-   https://www.debian.org/	/usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt
-   ldaps://db.debian.org/	/usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt
-   https://lwn.net/	/usr/share/ca-certificates/mozilla/GeoTrust_Global_CA.crt
+   https://metacpan.org/	/usr/share/ca-certificates/mozilla/GlobalSign_Root_CA_-_R3.crt
+   https://www.debian.org/	/usr/share/ca-certificates/mozilla/ISRG_Root_X1.crt
+   ldaps://db.debian.org/	/usr/share/ca-certificates/mozilla/ISRG_Root_X1.crt
 
 Prerequisites
 =============
