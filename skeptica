@@ -29,6 +29,10 @@ my $visit = sub {
     my $cert_ptr = IO::Socket::SSL::Utils::PEM_file2cert($file);
     $ca_certs{$cert_ptr} = $File::Find::name;
 };
+if (not stat "$ca_dir/") {
+    print {*STDERR} "skeptica: $ca_dir: $ERRNO\n";
+    exit(1);
+}
 File::Find::find({wanted => $visit}, $ca_dir);
 
 my $rc = 0;
