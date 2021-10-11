@@ -13,9 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install deps
-      run: sudo apt-get install libio-socket-ssl-perl
+      run: sudo apt-get install libio-socket-ssl-perl libipc-system-simple-perl
     - name: smoke test
-      run: grep -E '\w+://\S+' README -o | sort -u | xargs ./skeptica
+      run: prove -v
+      env:
+        SKEPTICA_TEST_NETWORK: 1
     - name: check README syntax
       run: |
         python -m pip install --user pygments restructuredtext-lint
