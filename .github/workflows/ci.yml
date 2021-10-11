@@ -18,6 +18,10 @@ jobs:
       run: prove -v
       env:
         SKEPTICA_TEST_NETWORK: 1
+    - name: run perlcritic
+      run: |
+        sudo apt-get install libperl-critic-perl
+        perlcritic skeptica t/*.t
     - name: check README syntax
       run: |
         python -m pip install --user pygments restructuredtext-lint
