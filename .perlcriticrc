@@ -25,6 +25,7 @@ exclude_functions = print
 # no, thanks
 
 [-ValuesAndExpressions::ProhibitEmptyQuotes]
+[-ValuesAndExpressions::ProhibitNoisyQuotes]
 # no, thanks
 
 [-ValuesAndExpressions::ProhibitVersionStrings]
