@@ -22,9 +22,9 @@ Prerequisites
 
 * Perl ≥ 5.10
 
-* `IO::Socket::SSL <https://metacpan.org/release/IO-Socket-SSL>`_ ≥ 1.91
+* `IO::Socket::SSL <https://metacpan.org/dist/IO-Socket-SSL>`_ ≥ 1.91
 
-* `URI <https://metacpan.org/release/URI>`_ ≥ 1.53
+* `URI <https://metacpan.org/dist/URI>`_ ≥ 1.53
 
 * CA certificate bundle unpacked at ``/usr/share/ca-certificates``
 
